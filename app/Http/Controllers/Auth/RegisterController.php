@@ -47,11 +47,32 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $messages = [
+
+            'name.required'      => 'El nombre es requerido',
+            'name.min'           => 'El nombre debe tener como mínimo 3 caracteres',
+            'name.alpha'         => 'El nombre debe tener solo letras, fijate que no contenga espacios',
+
+            'last_name.required' => 'El apellido es requerido',
+            'last_name.min'      => 'El apellido debe tener como mínimo 3 caracteres',
+            'last_name.alpha'    => 'El apellido debe tener solo letras, fijate que no contenga espacios',
+
+            'email.required'     => 'El correo electrónico es requerido',
+            'email.email'        => 'El correo electrónico es invalido',
+            'email.max'          => 'El correo puede tener como máximo 255 caracteres',
+            'email.unique'       => 'Este correo electrónico ya se encuentra registrado',
+
+            'password.required'  => 'La contraseña es requerida',
+            'password.min'       => 'La contraseña debe tener como mínimo 6 caracteres',
+            'password.confirmed' => 'Las contraseñas no coinciden'
+        ];
+
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'name' => 'required|min:3|alpha',
+            'last_name' => 'required|min:3|alpha',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
-        ]);
+        ], $messages);
     }
 
     /**
@@ -63,9 +84,10 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'name'      => $data['name'],
+            'last_name' => $data['last_name'],
+            'email'     => $data['email'],
+            'password'  => bcrypt($data['password']),
         ]);
     }
 }
