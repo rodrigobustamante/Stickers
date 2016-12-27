@@ -1,0 +1,25 @@
+body {
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+main {
+    flex: 1 0 auto;
+  }
+
+.title-card{
+	padding-top: 7%; 
+}
+
+.nav-text{
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+}
+
+.db{
+	 min-width:  175px;
+}
+/*
+.title-text{
+	font-size: 50px;
+}*/
