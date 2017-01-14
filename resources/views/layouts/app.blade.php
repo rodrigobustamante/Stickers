@@ -26,12 +26,12 @@
   <div class="navbar-fixed">
     <nav class="blue darken-4">
       <div class="nav-wrapper container">
-        <a href="{{ url('/') }}" class="brand-logo center">No Name</a>
+        <a href="{{ url('/') }}" class="brand-logo center">Stick Sell</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars" aria-hidden="true"></i></a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
           <li><a class="nav-text" href="{{ url('/') }}">Inicio</a></li>
-          <li><a class="nav-text" href="#">Catálogo</a></li>
-          <li><a class="nav-text" href="#">Precios</a></li>
+          <li><a class="nav-text" href="{{ url('catalogo') }}">Catálogo</a></li>
+          <li><a class="nav-text" href="{{ url('precios') }}">Precios</a></li>
         </ul>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           @if (Auth::guest())
@@ -41,9 +41,8 @@
           @else
           <li>
             <a class='dropdown-button db nav-text' href='#' data-activates='dropdown1'>
-              {{ Auth::user()->name }} {{ Auth::user()->last_name }}
+              {{ Auth::user()->name }} {{ Auth::user()->last_name }} <i class="fa fa-caret-down" aria-hidden="true"></i>
             </a>
-            <i class="fa fa-angle-down" aria-hidden="true"></i>
           </li>        
           <ul id='dropdown1' class='dropdown-content'>
             <li><a href="#">Mi cuenta</a></li>
@@ -61,13 +60,13 @@
           @endif
         </ul>
         <ul class="side-nav" id="mobile-demo">
-          <li><a class="nav-text" href="{{ url('/') }}">Inicio</a></li>
-          <li><a class="nav-text" href="#">Catálogo</a></li>
-          <li><a class="nav-text" href="#">Precios</a></li>
+          <li><a href="{{ url('/') }}">Inicio</a></li>
+          <li><a href="#">Catálogo</a></li>
+          <li><a href="#">Precios</a></li>
           <li role="separator" class="divider"></li>
           @if (Auth::guest())
-          <li><a class="nav-text" href="{{ url('/login') }}">Iniciar Sesión</a></li>
-          <li><a class="nav-text" href="{{ url('/register') }}">Registro</a></li>
+          <li><a href="{{ url('/login') }}">Iniciar Sesión</a></li>
+          <li><a href="{{ url('/register') }}">Registro</a></li>
           @else
           <li><a href="#">Mi cuenta</a></li>
             <li>
@@ -117,7 +116,8 @@
   <script>
     $(document).ready(function(){
       $(".button-collapse").sideNav();
-      $(".dropdown-button").dropdown();  
+      $(".dropdown-button").dropdown();
+      $('select').material_select();
     });
   </script>
   @yield('scripts')

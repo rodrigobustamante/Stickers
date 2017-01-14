@@ -15,6 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('stickers', 'ControllerStickers');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'ControllerStickers@welcome');
+
+Route::get('catalogo', 'ControllerStickers@category');
+
+Route::get('precios', function(){
+	return view('prices');
+});

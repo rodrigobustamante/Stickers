@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-  <div class="col s6 offset-l3 cen">
+  <div class="col s6 offset-l3">
     <div class="card-panel" style="max-width: 650px; min-width: 300px;" >
     <h3 class="center">Inicio de sesión</h3>
     <hr style="opacity: 0.1">

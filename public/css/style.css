@@ -7,6 +7,15 @@ main {
     flex: 1 0 auto;
   }
 
+.category{
+	font-size: 19px;
+	opacity: 0.3;
+}
+
+.medidas{
+	font-size: 19px;
+}
+
 .title-card{
 	padding-top: 7%; 
 }
@@ -16,9 +25,27 @@ main {
 	font-size: 18px;
 }
 
+.sticker-image{
+	width: 250px;
+	height: 250px;
+}
+
 .db{
 	 min-width:  175px;
 }
+
+#sidenav-overlay{
+	display: none;
+}
+
+ul.pagination li {display: inline;}
+
+ul.pagination li.active {
+    background-color: #0D47A1;
+    color: white;
+    padding: 10px 12px;
+}
+
 /*
 .title-text{
 	font-size: 50px;
