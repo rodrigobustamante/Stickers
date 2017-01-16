@@ -5,15 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Sticker;
 use App\StickerCategory;
-use UUID;
 
 class ControllerStickers extends Controller
 {
 
     public function welcome()
     {
-        $stickers = Sticker::orderBy('created_at','desc')->paginate(6);
-        return view('welcome')->with(['stickers' => $stickers]);
+        $stickers   = Sticker::orderBy('created_at','desc')->paginate(6);
+        $categories = StickerCategory::orderBy('category', 'asc')->paginate(20);
+        return view('welcome')->with(['stickers' => $stickers, 'categories' => $categories]);
     }
 
     public function index()
@@ -85,13 +85,6 @@ class ControllerStickers extends Controller
         $sticker->save();
         $stickers = Sticker::orderBy('id','asc')->paginate(20);
         return view('stickers.index')->with(['stickers' => $stickers]);
-    }
-
-    public function category(){
-        $stickers = Sticker::orderBy('id','asc')->paginate(20);
-        return view('categories')->with([
-            'stickers' => $stickers
-        ]);   
     }
 
     public function destroy($id)

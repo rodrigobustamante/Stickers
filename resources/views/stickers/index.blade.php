@@ -21,8 +21,9 @@
               <td> {{ $sticker->name }}</td>
               <td> $ {{ $sticker->price }}</td>
               <td> <a href="{{ asset('images/stickers/'.$sticker->picture) }}">{{ $sticker->picture }}</a></td>
-              <td> <a href="{{ route('stickers.show', $sticker->id) }}">Ver</a> | 
-                   <a href="{{ route('stickers.edit', $sticker->id) }}">Editar</a>
+              <td> 
+                  <a href="{{ route('stickers.show', $sticker->id) }}">Ver</a> | 
+                  <a href="{{ route('stickers.edit', $sticker->id) }}">Editar</a>
               </td>
             </tr>
             @endforeach

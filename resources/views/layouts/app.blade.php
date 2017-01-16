@@ -26,12 +26,19 @@
   <div class="navbar-fixed">
     <nav class="blue darken-4">
       <div class="nav-wrapper container">
-        <a href="{{ url('/') }}" class="brand-logo center">Stick Sell</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars" aria-hidden="true"></i></a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <li><a class="nav-text" href="{{ url('/') }}">Inicio</a></li>
-          <li><a class="nav-text" href="{{ url('catalogo') }}">Catálogo</a></li>
-          <li><a class="nav-text" href="{{ url('precios') }}">Precios</a></li>
+          @if(Request::path() == '/')
+          <li><a class="nav-title" href="{{ url('/') }}">StickSell</a></li>
+          <li><a class="nav-text" href="#news">Novedades</a></li>
+          <li><a class="nav-text" href="#categories">Categorías</a></li>
+          <li><a class="nav-text" href="#prices">Precios</a></li>
+          @else
+          <li><a class="nav-title" href="{{ url('/') }}">StickSell</a></li>
+          <li><a class="nav-text" href="{{ url('/#news') }}">Novedades</a></li>
+          <li><a class="nav-text" href="{{ url('/#categories') }}">Categorías</a></li>
+          <li><a class="nav-text" href="{{ url('/#prices') }}">Precios</a></li>
+          @endif
         </ul>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           @if (Auth::guest())
@@ -60,9 +67,17 @@
           @endif
         </ul>
         <ul class="side-nav" id="mobile-demo">
+          @if(Request::path() == '/')
           <li><a href="{{ url('/') }}">Inicio</a></li>
-          <li><a href="#">Catálogo</a></li>
-          <li><a href="#">Precios</a></li>
+          <li><a href="#news">Novedades</a></li>
+          <li><a href="#categories">Categorías</a></li>
+          <li><a href="#prices">Precios</a></li>
+          @else
+          <li><a href="{{ url('/') }}">Inicio</a></li>
+          <li><a href="{{ url('/#news') }}">Novedades</a></li>
+          <li><a href="{{ url('/#categories') }}">Categorías</a></li>
+          <li><a href="{{ url('/#prices') }}">Precios</a></li>
+          @endif
           <li role="separator" class="divider"></li>
           @if (Auth::guest())
           <li><a href="{{ url('/login') }}">Iniciar Sesión</a></li>

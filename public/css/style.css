@@ -25,6 +25,11 @@ main {
 	font-size: 18px;
 }
 
+.nav-title{
+	font-family: 'Roboto', sans-serif;
+	font-size: 25px;
+}
+
 .sticker-image{
 	width: 250px;
 	height: 250px;
