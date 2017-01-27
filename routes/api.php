@@ -16,3 +16,13 @@ use Illuminate\Http\Request;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
+
+Route::get('stickers','ControllerStickers@index');
+
+Route::get('sticker/{id}','ControllerStickers@show');
+
+Route::delete('sticker/{id}','ControllerStickers@destroy');
+
+Route::put('sticker/{id}','ControllerStickers@update');
+
+Route::post('sticker','ControllerStickers@store');

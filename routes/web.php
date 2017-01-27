@@ -15,10 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('stickers', 'ControllerStickers');
+//Route::resource('stickers', 'ControllerStickers');
 
 Auth::routes();
 
-Route::get('/', 'ControllerStickers@welcome');
+//Route::get('/', 'ControllerStickers@welcome');
 
 Route::resource('category', 'ControllerStickerCategory');

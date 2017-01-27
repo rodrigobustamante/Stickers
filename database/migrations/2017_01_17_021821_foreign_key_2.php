@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ForeignKeys extends Migration
+class ForeignKey2 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class ForeignKeys extends Migration
      */
     public function up()
     {
-        Schema::table('stickers', function(Blueprint $table){
-            $table->foreign('sticker_category_id')->references('id')->on('stickers_categories')->onDelete('cascade');
+        Schema::table('users', function(Blueprint $table){
+            $table->foreign('user_type_id')->references('id')->on('user_types')->onDelete('cascade');
         });
     }
 

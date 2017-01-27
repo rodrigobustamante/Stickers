@@ -13,7 +13,7 @@ class CreateStickersCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('stickers_category', function (Blueprint $table) {
+        Schema::create('sticker_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('category')->unique();
         });
@@ -27,6 +27,6 @@ class CreateStickersCategoryTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::drop('stickers_category');
+        Schema::drop('stickers_categories');
     }
 }

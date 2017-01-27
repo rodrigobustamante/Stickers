@@ -15,9 +15,11 @@ class StickerSeeder extends Seeder
         $faker = Faker\Factory::create();
         for($i = 0; $i < 100; $i++){
             Sticker::create([
-                'name'       			=> $faker->text(25),
+                'name'       			=> $faker->text(10),
                 'price'      			=> $faker->randomDigit(5),
-                'picture'    			=> $faker->text(25),
+                'picture'    			=> $faker->text(10),
+                'height'                => $faker->randomDigit(1),
+                'width'                 => $faker->randomDigit(1),
                 'sticker_category_id'   => 1,
                 'created_at' 			=> $faker->dateTimeThisMonth,
                 'updated_at' 			=> $faker->dateTimeThisMonth
