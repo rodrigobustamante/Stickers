@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Sticker;
 use App\StickerCategory;
-use EllipseSynergie\ApiResponse\Contracts\Response;
-use Illuminate\Support\Facades\Input;
-
 class ControllerStickers extends Controller
 {
 /*    public function welcome()
