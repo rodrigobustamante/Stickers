@@ -43,7 +43,7 @@ class ControllerStickers extends Controller
     {
         $sticker      = Sticker::find($id);
         if(!$sticker){
-            $message = array('message' => 'Sticker no encontrado');
+            $message = array('message' => 'Sticker con id ' . $id . ' no encontrado');
             return $message;
         }else{
             return $sticker;
@@ -55,7 +55,7 @@ class ControllerStickers extends Controller
     {
         $sticker = Sticker::find($id);
         if(!$sticker){
-            $message = array('message' => 'Sticker no encontrado');
+            $message = array('message' => 'Sticker con id ' . $id . ' no encontrado');
             return $message;
         }else{
             $sticker->name = $request['name'];
@@ -65,7 +65,7 @@ class ControllerStickers extends Controller
             $sticker->width = $request['width'];
             $sticker->sticker_category_id = $request['sticker_category_id'];
             $sticker->save();
-            $message = array('message' => 'Sticker modificado correctamente');
+            $message = array('message' => 'Sticker con id ' . $id . ' modificado correctamente');
             return $message;
         }
 
@@ -76,7 +76,11 @@ class ControllerStickers extends Controller
     {
         $sticker = Sticker::find($id);
         if(!$sticker){
-            $message = array('message' => 'Sticker no encontrado');
+            $message = array('message' => 'Sticker con id ' . $id . ' no encontrado');
+            return $message;
+        }
+        if($sticker->delete()){
+            $message = array('message' => 'Sticker con id ' . $id . ' eliminado correctamente');
             return $message;
         }
     }
