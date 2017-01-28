@@ -14,7 +14,7 @@ class ForeignKeys extends Migration
     public function up()
     {
         Schema::table('stickers', function(Blueprint $table){
-            $table->foreign('sticker_category_id')->references('id')->on('stickers_categories')->onDelete('cascade');
+            $table->foreign('sticker_category_id')->references('id')->on('sticker_categories')->onDelete('cascade');
         });
     }
 

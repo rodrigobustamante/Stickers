@@ -15,7 +15,7 @@ class StickerSeeder extends Seeder
         $faker = Faker\Factory::create();
         for($i = 0; $i < 100; $i++){
             Sticker::create([
-                'name'       			=> $faker->text(10),
+                'name'       			=> $faker->unique()->text(10),
                 'price'      			=> $faker->randomDigit(5),
                 'picture'    			=> $faker->text(10),
                 'height'                => $faker->randomDigit(1),

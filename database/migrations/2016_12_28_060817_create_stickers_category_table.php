@@ -16,6 +16,7 @@ class CreateStickersCategoryTable extends Migration
         Schema::create('sticker_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('category')->unique();
+            $table->timestamps();
         });
     }
 

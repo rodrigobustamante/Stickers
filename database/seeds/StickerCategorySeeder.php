@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\StickerCategory;
 
-class DatabaseSeeder extends Seeder
+class StickerCategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +12,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(StickerCategorySeeder::class);
-        $this->call(StickerSeeder::class);
+        StickerCategory::create([
+        	'category' => 'Programación'
+        ]);
     }
 }
